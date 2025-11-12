@@ -41,11 +41,13 @@ function Home() {
                         style={{
                             fontSize: "3rem",
                             fontWeight: "bold",
+                            margin: "0rem"
                         }}
                     >Seja Bem Vinde!</h2>
                     <p
                         style={{
-                            fontSize: "1.25rem"
+                            fontSize: "1.25rem",
+                            marginBottom: "0rem"
                         }}
                     >Expresse aqui seus pensamentos e opiniões</p>
 
@@ -62,7 +64,7 @@ function Home() {
                                 borderRadius: "0.5rem",
                                 color: "white",
                                 border: "2px solid white",
-                                padding: "0.5rem 1 rem"
+                                padding: "0.5rem 1rem"
                             }}
                         >Nova Postagem</div>
                     </div>
