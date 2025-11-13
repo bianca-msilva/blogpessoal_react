@@ -7,82 +7,43 @@ function Home() {
         // Código do componente por HTML
         // Essa div é o container geral da página
         <div
-            // Atributo e suas regras, {} externa - indica código TS dentro do código HTML e {} internas - objetos do TS
-            style={{
-                backgroundColor: "#312e81",
-                display: "flex",
-                justifyContent: "center",
-            }}
+            // Pelo Tailwind CSS, "" regras
+            className="bg-indigo-900 flex justify-center"
         >
             {/* Divide a tela em 2 colunas */}
             <div
-                style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr", // 2 colunas de tamanhos iguais
-                    color: "white",
-                    width: "100%", // Texto ocupa tam máximo possível
-                    maxWidth: "1280px" // Limita o tamanho máximo da tela
-                }}
+                // breakpoints para responsividade, grid-cols-1 para celular, grid-cols-2 para telas maiores que 680px
+                className="container grid grid-cols-1 sm:grid-cols-2 text-white"
             >
                 {/* 1° coluna, da esquerda */}
                 <div
-                    // Fazer estilização da div, coluna
-                    style={{
-                        display: "flex",
-                        flexDirection: "column", // Um elemento embaixo do outro
-                        gap: "1rem",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        paddingTop: "1rem",
-                        paddingBottom: "1rem"
-                    }}
+                    className="flex flex-col gap-4 items-center justify-center py-4"
                 >
                     <h2
-                        style={{
-                            fontSize: "3rem",
-                            fontWeight: "bold",
-                            margin: "0rem"
-                        }}
+                        className="text-5xl font-bold"                        
                     >Seja Bem Vinde!</h2>
                     <p
-                        style={{
-                            fontSize: "1.25rem",
-                            marginBottom: "0rem"
-                        }}
+                        className="text-xl"
                     >Expresse aqui seus pensamentos e opiniões</p>
 
                     {/* Guardando lugar para Link/Botão */}
                     <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "space-around",
-                            gap: "1rem"
-                        }}
+                        className="flex justify-around gap-4"
                     >
                         <div
-                            style={{
-                                borderRadius: "0.5rem",
-                                color: "white",
-                                border: "2px solid white",
-                                padding: "0.5rem 1rem"
-                            }}
+                            className="rounded text-white border-white border-solid border-2 py-2 px-4"
                         >Nova Postagem</div>
                     </div>
                 </div>
 
                 {/* 2° coluna, da direita */}
                 <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "center",
-                    }}
+                    className="flex justify-center"
                 >
                     <img
                         src="https://i.imgur.com/fyfri1v.png"
                         alt="Imagem da página Home"
-                        style={{
-                            width: "66%"
-                        }}
+                        className="w-2/3"
                     />
                 </div>
             </div>
