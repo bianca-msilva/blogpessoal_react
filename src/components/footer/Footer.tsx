@@ -11,7 +11,7 @@ function Footer() {
                         Blog Pessoal Generation | Copyright {data}</p>
                     <p className="text-lg">Acesse minhas redes sociais</p>
                     <div className=" flex gap-3">
-                        <a href="www.linkedin.com/in/bianca-maria-da-silva" target="_blank">
+                        <a href="https://www.linkedin.com/in/bianca-maria-da-silva-891a5b203/" target="_blank">
                         <LinkedinLogoIcon size={41} weight="regular" />
                         </a>
                         <a href="https://www.instagram.com/_.bey__/" target="_blank">
