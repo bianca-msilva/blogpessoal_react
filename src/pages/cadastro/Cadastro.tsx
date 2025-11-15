@@ -35,7 +35,7 @@ function Cadastro() {
   }, [usuario])
 
   function retornar() {
-    navigate("/login");
+    navigate("/");
   }
 
   // Conectar o Formulário com os seus respectivos estados (função responsável por atualizar o estado)
