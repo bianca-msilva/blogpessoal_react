@@ -26,8 +26,8 @@ function Navbar() {
                     {/* Menu de navegação */}
                     <div className="flex gap-5">
                         Postagens
-                        Temas
-                        Cadastrar Tema
+                        <Link to='/temas' className='hover:underline'>Temas</Link>
+                        <Link to='/cadastrartema' className='hover:underline'>Cadastrar tema</Link>
                         Perfil
                         {/* Ao invés do endereço de uma rota, passa o onClick */}
                         <Link to='' onClick={logout} className="hover:underline">Sair</Link>
