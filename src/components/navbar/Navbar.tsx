@@ -25,7 +25,7 @@ function Navbar() {
 
                     {/* Menu de navegação */}
                     <div className="flex gap-5">
-                        Postagens
+                        <Link to='/postagens' className='hover:underline'>Postagens</Link>
                         <Link to='/temas' className='hover:underline'>Temas</Link>
                         <Link to='/cadastrartema' className='hover:underline'>Cadastrar tema</Link>
                         Perfil
