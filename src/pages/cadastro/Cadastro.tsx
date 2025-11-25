@@ -87,7 +87,7 @@ function Cadastro() {
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 h-screen place-items-center font-bold">
-        <img src="./src/assets/logoblog2.png" alt="Imagem de cadastro" />
+        <img src="https://ik.imagekit.io/dijdduf7u/blog%20pessoal/logoblog2.png" alt="Imagem de cadastro" />
         <form className="flex flex-col justify-center items-center w-2/3 py-4 gap-4"
           onSubmit={cadastrarNovousuario}
         >
