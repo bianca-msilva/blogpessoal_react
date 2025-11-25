@@ -116,7 +116,7 @@ function AtualizarPerfil() {
                 <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr]">
                         {/* Seção da foto */}
-                        <div className="bg-linear-to-br from-sky-400 via-sky-500 to-indigo-500 p-8 flex flex-col items-center justify-center">
+                        <div className="bg-linear-to-br from-indigo-300 via-cyan-500 to-green-500 p-8 flex flex-col items-center justify-center">
                             <div className="relative">
                                 <img
                                     src={user.foto}
@@ -230,7 +230,7 @@ function AtualizarPerfil() {
                                     </button>
                                     <button
                                         type="submit"
-                                        className="flex-1 px-6 py-3 bg-linear-to-r from-indigo-600 to-indigo-700 text-white font-semibold rounded-xl hover:from-indigo-700 hover:to-indigo-800 shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+                                        className="flex-1 px-6 py-3 bg-linear-to-b from-cyan-600 to-indigo-700 text-white font-semibold rounded-xl hover:from-cyan-700 hover:to-indigo-800 shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
                                         disabled={isLoading}
                                     >
                                         {isLoading ? (
