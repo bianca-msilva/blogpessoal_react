@@ -1,6 +1,7 @@
 import { createContext, useState, type ReactNode } from "react";
 import type UsuarioLogin from "../models/UsuarioLogin";
 import { login } from "../services/Service"
+import { ToastAlerta } from "../utils/ToastAlerta";
 
 // Tudo o que desejo compartilhar globalmente na aplicação, ter acesso à
 interface AuthContextProps {
@@ -39,9 +40,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
         try {
             await login(`/usuarios/logar`, usuarioLogin, setUsuario)
-            alert("Usuário autenticado com sucesso!")
+            ToastAlerta("Usuário autenticado com sucesso!", "sucesso")
         } catch (error) {
-            alert("Os dados do usuário estão inconsistentes!")
+            ToastAlerta("Os dados do usuário estão inconsistentes!", "erro")
         }
         setIsLoading(false);
     }

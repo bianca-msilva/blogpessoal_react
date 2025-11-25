@@ -5,6 +5,7 @@ import type Usuario from "../../models/Usuario";
 import { useNavigate } from "react-router-dom";
 import { cadastrarUsuario } from "../../services/Service";
 import { ClipLoader } from "react-spinners";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 
 function Cadastro() {
@@ -62,13 +63,13 @@ function Cadastro() {
       try {
         // Mandar para o Backend, setUsuario para receber o id posteriormente
         await cadastrarUsuario(`/usuarios/cadastrar`, usuario, setUsuario);
-        alert('Usuário cadastrado com sucesso!');
+        ToastAlerta('Usuário cadastrado com sucesso!', "sucesso");
       } catch (error) {
-        alert('Erro ao cadastrar o usuário!');
+        ToastAlerta('Erro ao cadastrar o usuário!', "erro");
       }
 
     } else {
-      alert("Os dados do usuário inconsistentes! Verifique as informações do cadastro!");
+      ToastAlerta("Os dados do usuário inconsistentes! Verifique as informações do cadastro!", "info");
       setUsuario({
         ...usuario,
         senha: ''
@@ -80,8 +81,8 @@ function Cadastro() {
   }
 
   // USADO SOMENTE EM DESENVOLVIMENTO, ao colocar em produção DEVEM ser retirados
-  console.log(JSON.stringify(usuario));
-  console.log("Confirmar Senha: " + confirmarSenha);
+  // console.log(JSON.stringify(usuario));
+  // console.log("Confirmar Senha: " + confirmarSenha);
 
   return (
     <>

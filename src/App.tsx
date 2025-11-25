@@ -11,6 +11,10 @@ import Home from "./pages/home/Home"
 import Login from "./pages/login/Login"
 import FormPostagem from "./components/postagem/formpostagem/FormPostagem"
 import DeletarPostagem from "./components/postagem/deletarpostagem/DeletarPostagem"
+import { ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+import Perfil from "./pages/perfil/Perfil"
+import AtualizarPerfil from "./pages/perfil/AtualizarPerfil"
 
 function App() {
 
@@ -19,6 +23,8 @@ function App() {
     // É um fragmento vazio, sem criação de vários nós na DOM
     <>
       <AuthProvider>
+        {/* Responsável para o Toast seja gerado e usado */}
+        <ToastContainer />
         <BrowserRouter>
           <Navbar />
           <div className="min-h-[80vh]">
@@ -34,6 +40,8 @@ function App() {
               <Route path="/cadastrarpostagem" element={<FormPostagem />} />
               <Route path="/editarpostagem/:id" element={<FormPostagem />} />
               <Route path="/deletarpostagem/:id" element={<DeletarPostagem />} />
+              <Route path="/perfil" element={<Perfil />} />
+              <Route path="/atualizarperfil" element={<AtualizarPerfil />} />
             </Routes>
           </div>
           <Footer />

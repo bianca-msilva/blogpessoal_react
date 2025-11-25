@@ -3,7 +3,7 @@ import axios from "axios";
 // ********** Conexão entre o FrontEnd e BackEnd **********
 // Objeto do Axios, {} para passar parâmetros
 const api = axios.create({
-    baseURL: 'https://blogpessoal-spring-vpxs.onrender.com' // Guarda endereço da API
+    baseURL: import.meta.env.VITE_API_URL // Guarda endereço da API
 })
 
 // ******* Funções *******
