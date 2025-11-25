@@ -24,7 +24,7 @@ function Navbar() {
                     {/* Coluna da esquerda com logo e título */}
                     <div className="flex flex-col items-center gap-2">
                         <Link to="/home" className="text-2xl font-bold">Blog Pessoal</Link>
-                        <img className="rounded-xl size-15" src="./src/assets/logoblog2.png" alt="Logo do Blog" />
+                        <img className="rounded-xl size-15" src="https://ik.imagekit.io/dijdduf7u/blog%20pessoal/logoblog2.png" alt="Logo do Blog" />
                     </div>
 
                     {/* Menu de navegação */}

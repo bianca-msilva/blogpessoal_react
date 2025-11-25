@@ -87,7 +87,7 @@ function Login() {
         <div
           className="hidden sm:flex justify-center items-center w-full h-full"
         >
-          <img src="./src/assets/logoblog2.png" alt="Imagem de login" />
+          <img src="https://ik.imagekit.io/dijdduf7u/blog%20pessoal/logoblog2.png" alt="Imagem de login" />
         </div>
       </div>
     </>
