@@ -7,11 +7,13 @@ import { ToastAlerta } from "../../utils/ToastAlerta"
 function Perfil() {
     const navigate = useNavigate()
 
-    const { usuario } = useContext(AuthContext)
+    const { usuario, isLogout } = useContext(AuthContext)
 
     useEffect(() => {
         if (usuario.token === "") {
-            ToastAlerta("Você precisa estar logado", "info")
+            if (!isLogout) {
+                ToastAlerta("Você precisa estar logado", "info")
+            }
             navigate("/")
         }
     }, [usuario.token])

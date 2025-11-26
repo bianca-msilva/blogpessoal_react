@@ -14,7 +14,7 @@ function FormTema() {
 
     const [tema, setTema] = useState<Tema>({} as Tema); // Guardar os dados que for digitando no formulário
 
-    const { usuario, handleLogout } = useContext(AuthContext);
+    const { usuario, handleLogout, isLogout } = useContext(AuthContext);
     const token = usuario.token;
 
     const { id } = useParams<{ id: string }>();
@@ -39,7 +39,9 @@ function FormTema() {
 
     useEffect(() => {
         if (token === '') {
-            ToastAlerta('Você precisa estar logado!', 'info')
+            if (!isLogout) {
+                ToastAlerta("Você precisa estar logado", "info")
+            }
             navigate('/')
         }
     }, [token])

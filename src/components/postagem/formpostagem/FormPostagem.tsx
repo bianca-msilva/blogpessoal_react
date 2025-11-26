@@ -19,7 +19,7 @@ function FormPostagem() {
 
     const [postagem, setPostagem] = useState<Postagem>({} as Postagem);
 
-    const { usuario, handleLogout } = useContext(AuthContext);
+    const { usuario, handleLogout, isLogout } = useContext(AuthContext);
     const token = usuario.token;
 
     const { id } = useParams<{ id: string }>();
@@ -64,7 +64,9 @@ function FormPostagem() {
     // Monitora valor do token, se ainda está válido
     useEffect(() => {
         if (token === '') {
-            ToastAlerta('Você precisa estar logado!', "info");
+            if (!isLogout) {
+                ToastAlerta("Você precisa estar logado", "info")
+            }
             navigate('/'); // Redireciona para o Login
         }
     }, [token])
@@ -172,27 +174,27 @@ function FormPostagem() {
 
                             {temas.map((tema) => (
                                 <>
-                                <option value={tema.id}>{tema.descricao}</option>
-                            </>
+                                    <option value={tema.id}>{tema.descricao}</option>
+                                </>
                             ))}
 
-                    </select>
-            </div>
+                        </select>
+                    </div>
 
-            <button type="submit"
-                className="rounded disabled:bg-slate-200 bg-blue-400 hover:bg-cyan-800 
+                    <button type="submit"
+                        className="rounded disabled:bg-slate-200 bg-blue-400 hover:bg-cyan-800 
                     text-white font-bold w-1/2 mx-auto py-2 flex justify-center"
-                    disabled={carregandoTema}
-            >
-                {isLoading?
-                <ClipLoader
-                    color="#ffffff"
-                    size={24}
-                /> :
-                <span>{id !== undefined ? 'Editar' : 'Cadastrar'}</span>
-            }
-            </button>
-        </form >
+                        disabled={carregandoTema}
+                    >
+                        {isLoading ?
+                            <ClipLoader
+                                color="#ffffff"
+                                size={24}
+                            /> :
+                            <span>{id !== undefined ? 'Editar' : 'Cadastrar'}</span>
+                        }
+                    </button>
+                </form >
             </div >
         </>
     )

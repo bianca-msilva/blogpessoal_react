@@ -8,7 +8,7 @@ function Navbar() {
     const navigate = useNavigate();
     const { usuario, handleLogout } = useContext(AuthContext);
 
-    function logout(){
+    function logout() {
         handleLogout();
         ToastAlerta("O usuário foi desconectado com sucesso!", "info")
         navigate('/login');
@@ -17,7 +17,7 @@ function Navbar() {
     //  Para a Navbar aparecer somente apenas o usuário estiver autenticado
     let component: ReactNode // É um componente react
 
-    if(usuario.token !== ''){
+    if (usuario.token !== '') {
         component = (
             <div className="bg-indigo-900 flex text-white py-4">
                 <div className="container flex justify-between items-center text-lg mx-7">

@@ -3,15 +3,19 @@ import type UsuarioLogin from "../../models/UsuarioLogin";
 import { useContext, useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import { ClipLoader } from "react-spinners";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Login() {
 
   const navigate = useNavigate();
   const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({} as UsuarioLogin);
-  const { usuario, handleLogin, isLoading } = useContext(AuthContext);
+  const { usuario, handleLogin, isLoading, isLogout } = useContext(AuthContext);
 
   useEffect(() => {
-    if(usuario.token !== ""){
+    if (usuario.token !== "") {
+      if (!isLogout) {
+        ToastAlerta("Você precisa estar logado", "info")
+      }
       navigate('/home')
     }
   }, [usuario])

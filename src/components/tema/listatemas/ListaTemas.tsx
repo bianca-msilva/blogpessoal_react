@@ -17,12 +17,14 @@ function ListaTemas() {
     const [temas, setTemas] = useState<Tema[]>([]);
 
     // Context
-    const { usuario, handleLogout } = useContext(AuthContext);
+    const { usuario, handleLogout, isLogout } = useContext(AuthContext);
     const token = usuario.token;
 
     useEffect(() => {
-        if(token === ''){
-            ToastAlerta('Você precisa estar logado!', 'info')
+        if (token === '') {
+            if (!isLogout) {
+                ToastAlerta("Você precisa estar logado", "info")
+            }
             navigate('/')
         }
     }, [token])

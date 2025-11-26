@@ -1,16 +1,17 @@
 import { GithubLogoIcon, InstagramLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
-import { AuthContext } from "../../contexts/AuthContext";
 import { useContext, type ReactNode } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 let data = new Date().getFullYear();
 
 function Footer() {
 
-    const{usuario} = useContext(AuthContext);
+    const { usuario, } = useContext(AuthContext);
 
     let component: ReactNode
 
-    if(usuario.token !== ''){
+    if (usuario.token !== '') {
+
         // Jogar na variável todo o conteúdo do footer
         component = (
             <div className="bg-indigo-900 flex justify-center items-center text-white">
@@ -20,13 +21,13 @@ function Footer() {
                     <p className="text-lg">Acesse minhas redes sociais</p>
                     <div className=" flex gap-3">
                         <a href="https://www.linkedin.com/in/bianca-maria-da-silva-891a5b203/" target="_blank">
-                        <LinkedinLogoIcon size={41} weight="regular" />
+                            <LinkedinLogoIcon size={41} weight="regular" />
                         </a>
                         <a href="https://www.instagram.com/_.bey__/" target="_blank">
-                        <InstagramLogoIcon size={41} weight="regular" />
+                            <InstagramLogoIcon size={41} weight="regular" />
                         </a>
                         <a href="https://github.com/bianca-msilva" target="_blank">
-                        <GithubLogoIcon size={41} weight="regular" />
+                            <GithubLogoIcon size={41} weight="regular" />
                         </a>
                     </div>
                 </div>

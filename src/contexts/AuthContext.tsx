@@ -1,4 +1,4 @@
-import { createContext, useState, type ReactNode } from "react";
+import { createContext, useRef, useState, type ReactNode } from "react";
 import type UsuarioLogin from "../models/UsuarioLogin";
 import { login } from "../services/Service"
 import { ToastAlerta } from "../utils/ToastAlerta";
@@ -9,6 +9,7 @@ interface AuthContextProps {
     handleLogout(): void
     handleLogin(usuario: UsuarioLogin): Promise<void>
     isLoading: boolean
+    isLogout: boolean
 }
 
 
@@ -34,6 +35,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     // Inicializar o Estado isLoading (Exibir e Ocultar o Loader no formulário de Login)
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
+    // useRef para indicar se o logout foi intencional ou não
+    const isLogout = useRef(false)
+
     // Implementação da função de Login (Autenticação na API/Back)
     async function handleLogin(usuarioLogin: UsuarioLogin) {
         setIsLoading(true);
@@ -41,6 +45,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         try {
             await login(`/usuarios/logar`, usuarioLogin, setUsuario)
             ToastAlerta("Usuário autenticado com sucesso!", "sucesso")
+            isLogout.current=false // Reset do isLogout
         } catch (error) {
             ToastAlerta("Os dados do usuário estão inconsistentes!", "erro")
         }
@@ -49,6 +54,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     // Implementação da Função de Logout (desconectar)
     function handleLogout() {
+        isLogout.current=true // indica que o logout foi intencional (usuário escolheu sair)
         setUsuario({
             id: 0,
             nome: "",
@@ -60,7 +66,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     return(
-        <AuthContext.Provider value={{usuario, handleLogin, handleLogout, isLoading}}>
+        <AuthContext.Provider value={{usuario, handleLogin, handleLogout, isLoading, isLogout: isLogout.current}}>
             {children}
         </AuthContext.Provider>
     )
